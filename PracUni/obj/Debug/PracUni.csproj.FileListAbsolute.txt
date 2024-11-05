@@ -77,3 +77,7 @@ C:\Users\nouma\source\repos\PracUni\PracUni\obj\Debug\PracUni.csproj.CoreCompile
 C:\Users\nouma\source\repos\PracUni\PracUni\obj\Debug\PracUni.csproj.Up2Date
 C:\Users\nouma\source\repos\PracUni\PracUni\obj\Debug\PracUni.dll
 C:\Users\nouma\source\repos\PracUni\PracUni\obj\Debug\PracUni.pdb
+C:\Users\nouma\source\repos\PracUni\PracUni\bin\EntityFramework.dll
+C:\Users\nouma\source\repos\PracUni\PracUni\bin\EntityFramework.SqlServer.dll
+C:\Users\nouma\source\repos\PracUni\PracUni\bin\EntityFramework.xml
+C:\Users\nouma\source\repos\PracUni\PracUni\bin\EntityFramework.SqlServer.xml
