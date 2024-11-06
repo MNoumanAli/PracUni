@@ -17,13 +17,16 @@
         @foreach (var student in Model)
         {
         <tr>
-            
-            <td>@student.ID</td>             
-            <td>@student.FirstName</td>      
-            <td>@student.LastName</td>       
-            <td>@student.EnrollmentDate.ToShortDateString()</td> 
+
+            <td>@student.ID</td>
+            <td>@student.FirstName</td>
+            <td>@student.LastName</td>
+            <td>@student.EnrollmentDate.ToShortDateString()</td>
             <td>
                 <a href="@Url.Action("Detail", "Student", new { id = student.ID })" class="btn btn-info btn-sm">Detail</a>
+            </td>
+            <td>
+                <a href="@Url.Action("Delete", "Student", new {id = student.ID})" class="btn btn-danger btn-sm">Delete</a>
             </td>
         </tr>
         }

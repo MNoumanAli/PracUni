@@ -31,6 +31,36 @@ namespace PracUni.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+
+
+        public ActionResult Delete(int? id)
+        {
+            if(id != null)
+            {
+                using (var transaction = db.Database.BeginTransaction())
+                {
+                    try
+                    {
+                        var student = db.Students.Find(id);
+                        var coursesToDelete = student.Enrollments
+                                         .Select(e => db.Courses.Find(e.CourseID))
+                                         .ToList();
+
+                        db.Courses.RemoveRange(coursesToDelete);
+                        db.Enrollments.RemoveRange(student.Enrollments);
+                        db.Students.Remove(student);
+                        db.SaveChanges();
+                        transaction.Commit();
+                    }
+                    catch
+                    {
+                        transaction.Rollback();
+                    }
+                }
+            } 
+            return RedirectToAction("Index");
+            
+        }
         public ActionResult Detail(int? id)
         {
             if(id == null) new HttpStatusCodeResult(HttpStatusCode.BadRequest);
