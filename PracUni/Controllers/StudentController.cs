@@ -1,4 +1,5 @@
 ﻿using PracUni.DAL;
+using PracUni.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,6 +19,18 @@ namespace PracUni.Controllers
             return View(students);
         }
 
+        public ActionResult AddStudent()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult AddStudent(Student student)
+        {
+            db.Students.Add(student);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
         public ActionResult Detail(int? id)
         {
             if(id == null) new HttpStatusCodeResult(HttpStatusCode.BadRequest);
