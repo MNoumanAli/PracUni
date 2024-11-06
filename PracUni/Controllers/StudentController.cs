@@ -32,6 +32,17 @@ namespace PracUni.Controllers
             return RedirectToAction("Index");
         }
 
+        public ActionResult Update(Student? modifiedStudent)
+        {
+            if(modifiedStudent != null)
+            {
+                var student = db.Students.Find(modifiedStudent.ID);
+                student.FirstName = modifiedStudent.FirstName;
+                student.LastName = modifiedStudent.LastName;
+                db.SaveChanges();
+            }
+            return RedirectToAction("Index");
+        }
 
         public ActionResult Delete(int? id)
         {
